@@ -7,13 +7,14 @@ wordlist =      ["below","down","go","going","horn",
 
 def substrings(string, dictionary)
 
-hash = Hash.new(0)
+hash = Hash.new(0) #initaite hash with a zero value, so that we can increment it
 
-string_array = string.downcase.gsub(/[^a-z0-9\s]/i, '').split(" ")
+string_modified = string.downcase.gsub(/[^a-z0-9\s]/i, '')
+# removes punctuation, makes the string lowercase, and splits at spaces.
 
-for word in string_array do
+dictionary.each do |word|
 
-if dictionary.include?(word)
+if string_modified.include?(word)
   hash[word] += 1
 
 end
@@ -23,4 +24,4 @@ p  hash
 
 end
 
-substrings("Hello! Guvna! CHAPSSDF!!! sit partner sniffle", wordlist)
+substrings("Howdy partner, sit down! How's it going?", wordlist)
