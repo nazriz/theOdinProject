@@ -2,31 +2,25 @@
 wordlist =      ["below","down","go","going","horn",
                   "how","howdy","it","i","low","own",
                   "part","partner","sit","sniffle","hello",
-                "world"]
+                "world", ]
 
 
 def substrings(string, dictionary)
 
+hash = Hash.new(0)
 
-
-string_array = string.split(" ")
+string_array = string.downcase.gsub(/[^a-z0-9\s]/i, '').split(" ")
 
 for word in string_array do
 
 if dictionary.include?(word)
-  p "#{word} is here!"
+  hash[word] += 1
 
+end
+end
+
+p  hash
 
 end
 
-end
-
-
-
-end
-
-substrings("hello world", wordlist)
-
-#Alright, so I can very easily isolate whole words with include
-# but I need to figure out how I'm going to isolate the substrings
-# That is a job for tomorrow, good night for now :)
+substrings("Hello! Guvna! CHAPSSDF!!! sit partner sniffle", wordlist)
