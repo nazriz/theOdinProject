@@ -29,7 +29,9 @@ buy_day_sell_day = []
 buy_day_sell_day << stocks.find_index(max_profit[0])
 buy_day_sell_day << stocks.find_index(sell_day)
 
-p buy_day_sell_day
+p "If you bought a stock on day #{buy_day_sell_day[0]},"
+p "and then sold that stock on day #{buy_day_sell_day[1]},"
+p "your profit would be $#{max_profit[1]}."
 
 
 end
