@@ -7,21 +7,28 @@ stocks.each do |stock|
 
 
 i = stocks.index(stock)
-while i <= stocks.length
+eval_hash = {}
+eval_to_beat = 0
+while i < stocks.length
+eval = stocks[i] - stock
 
-  p i
+  if eval > eval_to_beat
+    eval_hash[stock] = eval
+    eval_to_beat = eval
+  end
 
 i += 1
+
 end
 p "END OF LOOP"
-
+p eval_hash
 end
 
 
 
 end
 
-
+# main_hash = eval_hash.sort_by { |k,v| v }.first
 
 stock_picker(stonks)
 
