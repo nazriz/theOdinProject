@@ -2,12 +2,12 @@ stonks = [17,3,6,9,15,8,6,1,10]
 
 
 def stock_picker(stocks)
-
+eval_hash = {}
 stocks.each do |stock|
 
 
 i = stocks.index(stock)
-eval_hash = {}
+
 eval_to_beat = 0
 while i < stocks.length
 eval = stocks[i] - stock
@@ -20,15 +20,21 @@ eval = stocks[i] - stock
 i += 1
 
 end
-p "END OF LOOP"
-p eval_hash
+
+end
+max_profit = eval_hash.max_by {|k, v| v}
+
+sell_day = max_profit[0] + max_profit[1]
+buy_day_sell_day = []
+buy_day_sell_day << stocks.find_index(max_profit[0])
+buy_day_sell_day << stocks.find_index(sell_day)
+
+p buy_day_sell_day
+
+
 end
 
 
-
-end
-
-# main_hash = eval_hash.sort_by { |k,v| v }.first
 
 stock_picker(stonks)
 
